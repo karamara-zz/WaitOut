@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="waitOut">
+<head>
+  <!-- // <script type ="text/javascript" src="/socket.io/socket.io.js"></script> -->
+  <script type='text/javascript' src='/static/js/lib/angular.js'></script>
+  <script type='text/javascript' src='/static/js/lib/angular-route.js'></script>
+  <script type='text/javascript' src='/static/js/lib/jquery-1.11.3.js'></script>
+  <script type='text/javascript' src='/static/js/lib/materialize.js'></script>
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <link rel="stylesheet" href="../static/css/lib/materialize.css">
+  <script type="text/javascript" src='/angular/app.js'></script>
+  <script type="text/javascript" src='/angular/factories/map.js'></script>
+  <script type="text/javascript" src='/angular/controllers/maps.js'></script>
+  <script type='text/javascript'>
+  </script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body  ng-controller = "mapController as mapCtrl">
+	<header>
+		<div class="container">
+			<nav>
+				<div class = 'nav-wrapper {{mapCtrl.result.result}}'>
+					<a href="#" class = 'brand-logo'>Logo</a>
+					<ul id='nav-mobile' class ="right hide-on-med-and-down">
+						<li>Home</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class ="container">
+			<form>
+				<p><button class="btn grey" ng-click="mapCtrl.current_location()">Get current location</button></p>
+				<p>start: <input type="text" name="start" ng-model='mapCtrl.newDirections.start' 
+					ng-required= 'true'></p>
+				<p>end: <input type="text" name='end'  ng-model='mapCtrl.newDirections.end'></p>
+				<p>target time (minutes):<input type='number' ng-model='mapCtrl.newDirections.target'></p>
+				<input type="submit" value ="start"ng-click="mapCtrl.setsLoop()"class='btn grey'>
+			</form>
+			<div>
+				<p> The time it takes to get there now: <span ng-bind='mapCtrl.result.cDuration.text'></span></p>
+				<p> The time without traffic: <span ng-bind='mapCtrl.result.duration_without_traffic'></span></p>
+			</div>
+		</div>
+	</main>
+	<footer>
+		
+	</footer>
+</body>
+</html>

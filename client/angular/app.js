@@ -1,0 +1,1 @@
+var waitOutModule = angular.module('waitOut',[]);
