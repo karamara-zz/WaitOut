@@ -3,7 +3,7 @@ module.exports = (function(){
 	return {
 		getDirection: function(req, res){
 			console.log(req.body)
-			var reqStr= "https://maps.googleapis.com/maps/api/directions/json?origin="+req.body.start+"&destination="+req.body.end+"&traffic_model=pessimistic&departure_time=now&key=AIzaSyC5km2U4XM2_iLX8utCK24s3R0PBx0XR2Q"
+			var reqStr= "https://maps.googleapis.com/maps/api/directions/json?origin="+req.body.start+"&destination="+req.body.end+"&traffic_model=best_guess&departure_time=now&key=AIzaSyC5km2U4XM2_iLX8utCK24s3R0PBx0XR2Q"
 			// request({
 			// 	http.get('http://maps.googleapis.com/maps/api/directions/json?origin=Toronto&&key=AIzaSyC5km2U4XM2_iLX8utCK24s3R0PBx0XR2Q', function(req, res) {
 			// 	console.log(res)
@@ -23,7 +23,8 @@ module.exports = (function(){
 			    	return error
 			      // return console.error('upload failed:', error);
 			    }
-			    console.log('Upload successful!  Server responded with:');
+
+			    console.log('Upload successful!  Server responded with:', typeof(body));
 			    var jsonBody = JSON.parse(body)
 			 //    if (jsonBody.status == "OK"){
 				//     console.log(jsonBody.routes[0].legs[0].duration)
