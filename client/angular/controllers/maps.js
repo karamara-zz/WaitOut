@@ -28,6 +28,7 @@
             _this.result.result = "green"
             alert("traffic went down!!!!!")
             console.log("greeen")
+            _this.stopInterval();
           }
           else{
             _this.result.result = "red"
@@ -37,12 +38,19 @@
       function test() {
         console.log('test')
       }
+      var stop;
       this.setsLoop = function(){
-        $interval(this.getDirection,2000,2);
-        $interval(this.getDirection,10000,4);
-        $interval(this.getDirection,3600000);
-      }
 
+        stop = $interval(this.getDirection,2000 ,2);
+        stop = $interval(this.getDirection,10000,4);
+        stop = $interval(this.getDirection,36000000);
+      }
+      this.stopInterval = function(){
+        console.log("cancelling interval")
+        if(angular.isDefined(stop)){
+          $interval.cancel(stop)
+        }
+      }
       this.getPostition = function(data){
         console.log(data)
       }
