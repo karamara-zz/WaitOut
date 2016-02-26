@@ -3,7 +3,7 @@ module.exports = (function(){
 	return {
 		getDirection: function(req, res){
 			console.log(req.body, "session", req.session)
-			var reqStr= "https://maps.googleapis.com/maps/api/directions/json?origin="+req.body.start+"&destination="+req.body.end+"&traffic_model=best_guess&departure_time=now&key={{api_key}}"
+			var reqStr= "https://maps.googleapis.com/maps/api/directions/json?origin="+req.body.start+"&destination="+req.body.end+"&traffic_model=best_guess&departure_time=now&key=AIzaSyC5km2U4XM2_iLX8utCK24s3R0PBx0XR2Q"
 
 			console.log(reqStr)
 			request({
