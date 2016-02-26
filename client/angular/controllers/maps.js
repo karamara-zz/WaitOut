@@ -40,15 +40,16 @@
       }
       var stop;
       this.setsLoop = function(){
-
-        stop = $interval(function(){
-          console.log("every 2sec")
-          _this.getDirection()},2000 ,2);
-        stop2 = $interval(function(){
-            console.log("every 10sec")
-            _this.getDirection()},10000,4);
-        stop3 = $interval(function(){
-          _this.getDirection()},36000000);
+        if (!this.stop3){
+          stop = $interval(function(){
+            console.log("every 2sec")
+            _this.getDirection()},2000 ,2);
+          stop2 = $interval(function(){
+              console.log("every 10sec")
+              _this.getDirection()},10000,4);
+          this.stop3 = $interval(function(){
+            _this.getDirection()},36000000);
+        }
 
       };
       this.stopInterval = function(){
@@ -57,7 +58,8 @@
             "stop")
           $interval.cancel(stop)
           $interval.cancel(stop2)
-          $interval.cancel(stop3)
+          $interval.cancel(this.stop3)
+          this.stop3 = false
         }
       }
       this.getPostition = function(data){

@@ -7,6 +7,7 @@
   <script type='text/javascript' src='/static/js/lib/jquery-1.11.3.js'></script>
   <script type='text/javascript' src='/static/js/lib/materialize.js'></script>
   <link rel="stylesheet" href="../static/css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/lib/materialize.css">
   <script type="text/javascript" src='/angular/app.js'></script>
   <script type="text/javascript" src='/angular/factories/map.js'></script>
@@ -21,23 +22,27 @@
 		<div class="container">
 			<nav>
 				<div class = 'nav-wrapper {{mapCtrl.result.result}}'>
-					<a href="#" class = 'brand-logo'>Logo</a>
+					<div>
+					<a href="#" class = 'brand-logo'>Wait Out</a>
+
 					<ul id='nav-mobile' class ="right hide-on-med-and-down">
 						<li>Home</li>
 					</ul>
+						
+					</div>
 				</div>
 			</nav>
 		</div>
 	</header>
 	<main>
-		<div class ="container">
-			<form>
-				<p><button class="btn grey" ng-click="mapCtrl.current_location()">Get current location</button></p>
-				<p>start: <input type="text" name="start" ng-model='mapCtrl.newDirections.start' 
+		<div class ="container row">
+				<p>start:  <button class='btn pull-right'><i class="material-icons" ng-click="mapCtrl.current_location()">my_location</i> Use current location</button>
+			<form ng-submit='mapCtrl.setsLoop()'>
+				<input type="text" name="start" ng-model='mapCtrl.newDirections.start' 
 					ng-required= 'true'></p>
 				<p>end: <input type="text" name='end'  ng-model='mapCtrl.newDirections.end'></p>
 				<p>target time (minutes):<input type='number' ng-model='mapCtrl.newDirections.target'></p>
-				<input type="submit" value ="start"ng-click="mapCtrl.setsLoop()"class='btn grey'>
+				<input type="submit" value ="start"class='btn'  ng-disabled='mapCtrl.stop3'>
 			</form>
 			<div>
 				<p> The time it takes to get there now: <span ng-bind='mapCtrl.result.cDuration.text'></span></p>
