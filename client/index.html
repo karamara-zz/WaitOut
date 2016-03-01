@@ -36,7 +36,7 @@
 	</header>
 	<main>
 		<div class ="container row">
-				<p>start:  <button class='btn pull-right'><i class="material-icons" ng-click="mapCtrl.current_location()">my_location</i> Use current location</button>
+				<p>start:  <button class='btn pull-right' ng-click="mapCtrl.current_location()"><i class="material-icons" >my_location</i> Use current location</button>
 			<form ng-submit='mapCtrl.setsLoop()'>
 				<input type="text" name="start" ng-model='mapCtrl.newDirections.start' 
 					ng-required= 'true'></p>
