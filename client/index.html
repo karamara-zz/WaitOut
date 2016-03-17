@@ -22,11 +22,12 @@
 		<div class="container">
 			<nav>
 				<div class = 'nav-wrapper {{mapCtrl.result.result}}'>
-					<div>
+					<div calss='col'>
 					<a href="#" class = 'brand-logo'>Wait Out</a>
 
 					<ul id='nav-mobile' class ="right hide-on-med-and-down">
-						<li>Home</li>
+						<li ng-click='mapCtrl.showCounter()'>Home</li>
+						<li ng-bind="mapCtrl.countersObject.total"></li>
 					</ul>
 						
 					</div>
@@ -42,8 +43,9 @@
 					ng-required= 'true'></p>
 				<p>end: <input type="text" name='end'  ng-model='mapCtrl.newDirections.end'></p>
 				<p>target time (minutes):<input type='number' ng-model='mapCtrl.newDirections.target'></p>
-				<input type="submit" value ="start"class='btn'  ng-disabled='mapCtrl.stop3'>
+				<input type="submit" value ="start"class='btn'  ng-hide='mapCtrl.stop3'>
 			</form>
+			<button class='btn' ng-click="mapCtrl.stop()" ng-show='mapCtrl.stop3'>Stop</button>
 			<div>
 				<p> The time it takes to get there now: <span ng-bind='mapCtrl.result.cDuration.text'></span></p>
 				<p> The time without traffic: <span ng-bind='mapCtrl.result.duration_without_traffic'></span></p>

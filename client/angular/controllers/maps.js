@@ -2,9 +2,9 @@
   		console.log("loading controller")
       this.result= {result : "grey"}
       this.newDirections = {
-        start: "seattle",
-        end: 'lynnwood',
-        target: 10,
+        start: "bellevue, WA",
+        end: 'lynnwood, WA',
+        target: 35,
       }
   		var _this = this;
       this.current_location = function(){
@@ -14,9 +14,13 @@
           console.log(location)
           _this.newDirections.start = location
         })
-
+      }
+      this.stop = function(){
+        _this.stopInterval();
+        _this.stop3 = undefined;
       }
   		this.getDirection = function(){
+        mapFactory.increaseCounter();
   			console.log(_this.newDirections)
   			mapFactory.getDirection(_this.newDirections, function(data){
           _this.cDuration = mapFactory.cDuration;
@@ -26,7 +30,7 @@
           if (data.result == true){
             console.log(data.result, data)
             _this.result.result = "green"
-            alert("traffic went down!!!!!")
+            alert("Estimated duration reached target time. Good to go")
             console.log("greeen")
             _this.stopInterval();
           }
@@ -35,9 +39,6 @@
           }
   			})
   		}
-      function test() {
-        console.log('test')
-      }
       var stop;
       this.setsLoop = function(){
         if (!this.stop3){
@@ -64,5 +65,11 @@
       }
       this.getPostition = function(data){
         console.log(data)
+      }
+      this.countersObject = {};
+      this.showCounter = function(){
+        mapFactory.showCounter(function(data){
+          _this.countersObject = data;
+        })
       }
   	}])

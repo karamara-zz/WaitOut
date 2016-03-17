@@ -1,5 +1,6 @@
   	waitOutModule.factory('mapFactory',['$http', function($http){
   		console.log("loading factory")
+
       var factory = {};
       var self = factory
       factory.cDuration = 0;
@@ -55,6 +56,19 @@
           callback(data)
         });
         console.log(self.cDuration.text)
+      }
+      factory.increaseCounter = function(){
+          $http.put('/counter');
+      }
+      factory.showCounter = function(callback){
+        $http.get('/counter').success(function(data){
+          var total = 0;
+          for (item in data) {
+            total += data[item].counter;
+          }
+          data.total = total;
+          callback(data);
+        })
 
       }
   		return factory
