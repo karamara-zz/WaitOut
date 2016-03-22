@@ -1,10 +1,13 @@
   	waitOutModule.factory('mapFactory',['$http', function($http){
   		console.log("loading factory")
-
+      $http.post('https://counter-by-site.herokuapp.com/counter',{site:'WaitOut'}).success(function(data){
+        console.log(data)
+      })
       var factory = {};
       var self = factory
       factory.cDuration = 0;
       factory.requestingDirection ={}
+
   		factory.getLocation= function(callback){
   			if (navigator.geolocation){
           var options = {
