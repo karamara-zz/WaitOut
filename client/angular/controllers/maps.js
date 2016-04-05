@@ -49,7 +49,7 @@
               console.log("every 10sec")
               _this.getDirection()},10000,4);
           this.stop3 = $interval(function(){
-            _this.getDirection()},36000000);
+            _this.getDirection()},500000);
         }
 
       };
