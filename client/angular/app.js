@@ -1,1 +1,1 @@
-var waitOutModule = angular.module('waitOut',[]);
+var waitOutModule = angular.module('waitOut',['ngCookies']);

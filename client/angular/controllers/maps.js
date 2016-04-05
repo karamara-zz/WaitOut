@@ -1,6 +1,12 @@
-  	waitOutModule.controller('mapController',['$interval','mapFactory', function($interval,mapFactory){
+  	waitOutModule.controller('mapController',['$interval','mapFactory','$cookies','counterFactory', function($interval,mapFactory,$cookies,counterFactory){
   		console.log("loading controller")
       this.result= {result : "grey"}
+      var visited = $cookies.get('visited');
+      console.log(visited)
+      if (!visited){
+        counterFactory.counter();
+      }
+      $cookies.put('visited', 'true');
       this.newDirections = {
         start: "bellevue, WA",
         end: 'lynnwood, WA',

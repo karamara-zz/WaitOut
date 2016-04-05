@@ -6,11 +6,13 @@
   <script type='text/javascript' src='/static/js/lib/angular-route.js'></script>
   <script type='text/javascript' src='/static/js/lib/jquery-1.11.3.js'></script>
   <script type='text/javascript' src='/static/js/lib/materialize.js'></script>
+  <script type='text/javascript' src='/angular-cookies/angular-cookies.js'></script>
   <link rel="stylesheet" href="../static/css/styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/lib/materialize.css">
   <script type="text/javascript" src='/angular/app.js'></script>
   <script type="text/javascript" src='/angular/factories/map.js'></script>
+  <script type="text/javascript" src='/angular/factories/counter.js'></script>
   <script type="text/javascript" src='/angular/controllers/maps.js'></script>
   <script type='text/javascript'>
   </script>
@@ -22,14 +24,14 @@
 		<div class="container">
 			<nav>
 				<div class = 'nav-wrapper {{mapCtrl.result.result}}'>
-					<div calss='col'>
-					<a href="#" class = 'brand-logo'>Wait Out</a>
-
-					<ul id='nav-mobile' class ="right hide-on-med-and-down">
-						<li ng-click='mapCtrl.showCounter()'>Home</li>
-						<li ng-bind="mapCtrl.countersObject.total"></li>
-					</ul>
-						
+					<div class='container'>
+					<div class='row'>
+						<a href="#" class = 'brand-logo'>Wait Out</a>
+						<ul id='nav-mobile' class ="right hide-on-med-and-down">
+							<li ng-click='mapCtrl.showCounter()'>Home</li>
+							<li ng-bind="mapCtrl.countersObject.total"></li>
+						</ul>
+					</div>
 					</div>
 				</div>
 			</nav>
@@ -39,7 +41,7 @@
 		<div class ="container row">
 				<p>start:  <button class='btn pull-right' ng-click="mapCtrl.current_location()"><i class="material-icons" >my_location</i> Use current location</button>
 			<form ng-submit='mapCtrl.setsLoop()'>
-				<input type="text" name="start" ng-model='mapCtrl.newDirections.start' 
+				<input type="text" name="start" ng-model='mapCtrl.newDirections.start'
 					ng-required= 'true'></p>
 				<p>end: <input type="text" name='end'  ng-model='mapCtrl.newDirections.end'></p>
 				<p>target time (minutes):<input type='number' ng-model='mapCtrl.newDirections.target'></p>
