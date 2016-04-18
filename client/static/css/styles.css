@@ -2,3 +2,10 @@
 	margin: 0px;
 	padding: 0px;
 }
+.nav-wrapper{
+	padding: 0px 20px;
+}
+	.nav-wrapper li{
+		text-align: center;
+		margin-left: 10px;
+	}
