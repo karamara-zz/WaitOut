@@ -25,6 +25,7 @@ module.exports = (function(){
 					else {
 						console.log("success");
 					}
+					res.json("counter");
 				})
 			})
 		},
