@@ -13,14 +13,16 @@
   <script type="text/javascript" src='/angular/app.js'></script>
   <script type="text/javascript" src='/angular/factories/map.js'></script>
   <script type="text/javascript" src='/angular/factories/counter.js'></script>
+  <script type="text/javascript" src='/angular/factories/user.js'></script>
   <script type="text/javascript" src='/angular/controllers/maps.js'></script>
+  <script type="text/javascript" src='/angular/controllers/users.js'></script>
   <script type='text/javascript' src='/node_modules/chai/chai.js'></script>
 
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
 <body  ng-controller = "mapController as mapCtrl">
-	<header>
+	<header ng-controller="userController as userCtrl">
 		<div class="container">
 			<nav>
 				<div class = 'nav-wrapper {{mapCtrl.result.result}}'>
@@ -28,8 +30,18 @@
 						<ul id='nav-mobile' class ="right hide-on-med-and-down">
 							<li ng-click='mapCtrl.showCounter()'>Home</li>
 							<li ng-bind="mapCtrl.countersObject.total"></li>
-							<li>Login</li>
+							<li ng-click='userCtrl.login()'>Login</li>
 						</ul>
+				</div>
+				<div ng-show = 'userCtrl.loggingIn' id='login' class='container'>
+					<p>Log-in</p>
+					<form action="" >
+						<label for="userName" class="col l6">Username:</label>
+						<input type="text" name='username'>
+						<label for ='password'>Password:</label>
+						<input type="password" name='password'>
+						<input type="submit" class='btn'>
+					</form>
 				</div>
 			</nav>
 		</div>

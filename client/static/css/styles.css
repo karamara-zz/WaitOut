@@ -9,3 +9,16 @@
 		text-align: center;
 		margin-left: 10px;
 	}
+#login{
+	background-color: white;
+	width: 30%;
+	position: absolute;
+	right: 10%;
+	color: black;
+	padding: 2%;
+	border: black solid 1px;
+
+}
+	#login input, #login label{
+		display: inline-block;
+	}
