@@ -8,4 +8,7 @@ waitOutModule.controller('userController',['userFactory', function(userFactory){
   	this.loggingIn = true;
   	console.log(this, _this)
   }
+  this.closeLogin = function(){
+  	this.loggingIn = false;
+  }
 }])

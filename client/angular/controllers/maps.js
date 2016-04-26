@@ -72,10 +72,16 @@
       this.getPostition = function(data){
         console.log(data)
       }
+
+      // counts the number of tiem users clicked start
       this.countersObject = {};
       this.showCounter = function(){
         mapFactory.showCounter(function(data){
-          _this.countersObject = data;
+          if (_this.countersObject.total){
+            _this.countersObject = {}
+          } else {
+            _this.countersObject = data;
+          }
         })
       }
   	}])

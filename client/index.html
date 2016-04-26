@@ -37,7 +37,7 @@
 					<p>Log-in</p>
 					<form action="" >
 						<label for="userName" class="col l6">Username:</label>
-						<input type="text" name='username'>
+						<input type="text" name='username'  ng-blur="userCtrl.closeLogin()">
 						<label for ='password'>Password:</label>
 						<input type="password" name='password'>
 						<input type="submit" class='btn'>
