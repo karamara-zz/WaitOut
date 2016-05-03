@@ -33,11 +33,11 @@
 							<li ng-click='userCtrl.login()'>Login</li>
 						</ul>
 				</div>
-				<div ng-show = 'userCtrl.loggingIn' id='login' class='container'>
+				<div ng-show = 'userCtrl.loggingIn' id='login' class='container'  outside-click ="userCtrl.closeLogin()">
 					<p>Log-in</p>
 					<form action="" >
 						<label for="userName" class="col l6">Username:</label>
-						<input type="text" name='username'  ng-blur="userCtrl.closeLogin()">
+						<input type="text" name='username' >
 						<label for ='password'>Password:</label>
 						<input type="password" name='password'>
 						<input type="submit" class='btn'>
