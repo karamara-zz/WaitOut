@@ -5,12 +5,12 @@ var waitOutModule = angular.module('waitOut',['ngCookies'])
         	var condition = $attributes.ngShow
             var scopeExpression = $attributes.outsideClick,
                 onDocumentClick = function(event){
-                	console.log(condition == true, condition)
+                	console.log(condition == true, condition);
                 	if (condition == true){
 	                    var isChild = $element.find(event.target).length > 0;
 
 	                    if(!isChild) {
-	                        $scope.$apply(scopeExpression);
+	                        $scope.$apply(scopeExpression());
 	                    }
                 	}
                 };

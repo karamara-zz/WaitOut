@@ -55,8 +55,9 @@
 				<p>end: <input type="text" name='end'  ng-model='mapCtrl.newDirections.end'></p>
 				<p>target time (minutes):<input type='number' ng-model='mapCtrl.newDirections.target'></p>
 				<input type="submit" value ="start"class='btn'  ng-hide='mapCtrl.stop3'>
+				<button class='btn' ng-click="mapCtrl.gether()">Gether Data for 2 days</button>
 			</form>
-			<button class='btn' ng-click="mapCtrl.stop()" ng-show='mapCtrl.stop3'>Stop</button>
+			<p class='btn' ng-click="mapCtrl.stop()" ng-show='mapCtrl.stop3'>Stop</p>
 			<div>
 				<p> The time it takes to get there now: <span ng-bind='mapCtrl.result.cDuration.text'></span></p>
 				<p> The time without traffic: <span ng-bind='mapCtrl.result.duration_without_traffic'></span></p>

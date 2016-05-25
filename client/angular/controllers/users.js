@@ -5,8 +5,11 @@ waitOutModule.controller('userController',['userFactory', function(userFactory){
   //login
   this.login = function(){
   	console.log("login button clicked")
-  	this.loggingIn = true;
-  	console.log(this, _this)
+    if ( this.loggingIn == true){
+      this.loggingIn = false;
+    } else {
+    	this.loggingIn = true;
+    }
   }
   this.closeLogin = function(){
   	console.log("closing login")

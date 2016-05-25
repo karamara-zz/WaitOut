@@ -57,6 +57,11 @@
         });
         console.log(self.cDuration.text)
       }
+      factory.getherData = function(callback){
+        $http.post('/getherData', {key: "asdfjkl;"}).success(function(data){
+          console.log(data)
+        })
+      }
       factory.increaseCounter = function(){
           $http.put('/counter');
       }

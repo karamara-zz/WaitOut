@@ -29,6 +29,9 @@ module.exports = (function(){
 				// }
 			    res.json(jsonBody)
 			  })
+		},
+		getherData: function(req, res){
+			console.log(req.body.key)
 		}
 	}
 })()

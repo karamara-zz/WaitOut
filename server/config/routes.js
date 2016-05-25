@@ -4,7 +4,10 @@ var counter = require('../controllers/counters.js')
 module.exports = function(app){
 
 	app.post('/direction', function(req,res){
-		direction.getDirection(req,res)
+		direction.getDirection(req,res);
+	})
+	app.post('/getherData', function(req, res){
+		direction.getherData(req,res);
 	})
 
 	// routes for counting how many times the request has been made.

@@ -44,7 +44,13 @@
             _this.result.result = "red"
           }
   			})
-  		}
+  		};
+      this.gether = function(){
+        console.log("gethering data for 2 days")
+        mapFactory.getherData(function(data){
+          console.log(data);
+        })
+      }
       var stop;
       this.setsLoop = function(){
         if (!this.stop3){
